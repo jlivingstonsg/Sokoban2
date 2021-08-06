@@ -1,0 +1,31 @@
+.Block{
+	background: #0E03FF;
+	width:50px;
+	height: 50px;
+	float: right;
+	Top:1px;
+}
+.Wall{
+	background: #FF0004;
+	width:50px;
+	height: 50px;
+	float: right;
+}.Space
+{
+	background: aliceblue;
+	width:50px;
+	height: 50px;
+	float: right;
+}
+.character{
+    width: 50px;
+    height: 50px;
+    background-color: dimgrey;
+	float: right;
+}
+.Goal{
+    width: 50px;
+    height: 50px;
+    background-color: aquamarine;
+	float: right;
+}

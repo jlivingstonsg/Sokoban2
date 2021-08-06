@@ -1,0 +1,102 @@
+<!-- 
+    You are going to create a simple JavaScript game, based on the game called ”Sokoban”.  
+    The first task is to create the game board itself. 
+    You will be given an array of characters that represents a tile-based map. 
+    Your task is to take that character array, and turn it into a grid of html elements that can be used to represent the map, 
+    that the player can then move around inside. 
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SokobanBase</title>
+	<script src="SokobanBase.js"></script>
+	<link href="SokobanCSS.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h3>SokobanBase</h3>
+	<div tabindex="0" id='Map' style="width: 950px;"></div>
+    <script>    
+		const Map = document.getElementById("Map");
+        // Loop to display all the 19x16 tileMap01.mapGrid parts. 
+        // The tileMap01.mapGrid must be placed in the center of the page and 19 x 16 square. 
+        for (var i = 0; i <= tileMap01.height; i++) 
+        {
+            for (var j = 0;j < tileMap01.width; j++)
+            {
+				if(tileMap01.mapGrid[i][j]=="B")
+				{
+					const block = document.createElement("div");
+					block.className = 'Block';
+					
+					block.id = "block"+i+","+j;
+					Map.appendChild(block);
+					
+					var bs = block.getBoundingClientRect();
+					var btop = parseInt(bs.top,10);
+					var bleft = parseInt(bs.left,10);
+					
+					const Space = document.createElement("div");
+					Space.className = 'Space';
+					document.body.appendChild(Space);
+					Map.appendChild(Space);
+					Space.style.left = bleft+'px';
+  					Space.style.top = btop+'px';
+					
+					
+					block.style.position = "absolute";
+  					block.style.left = bleft+'px';
+  					block.style.top = btop+1+'px';
+				}
+				if(tileMap01.mapGrid[i][j]==" ")
+				{
+					const Space = document.createElement("div");
+					Space.className = 'Space';
+					
+					Space.id = "block"+i+","+j;
+					Map.appendChild(Space);
+				}
+				if(tileMap01.mapGrid[i][j]=="W")
+				{
+					const Wall = document.createElement("div");
+					Wall.className = 'Wall';
+					
+					Map.appendChild(Wall);
+				}
+				if(tileMap01.mapGrid[i][j]=="G")
+				{
+					const Goal = document.createElement("div");
+					Goal.className = 'Goal';
+					Map.appendChild(Goal);
+				}
+				if(tileMap01.mapGrid[i][j]=="P")
+				{
+					const player = document.createElement("div");
+					player.className = 'character';
+					player.id = 'character';
+					
+					Map.appendChild(player);
+					
+					var bs = player.getBoundingClientRect();
+					var btop = parseInt(bs.top,10);
+					var bleft = parseInt(bs.left,10);
+					
+					const Space = document.createElement("div");
+					Space.className = 'Space';
+					document.body.appendChild(Space);
+					Map.appendChild(Space);
+					Space.style.left = bleft+'px';
+  					Space.style.top = btop+'px';
+					
+					
+					player.style.position = "absolute";
+  					player.style.left = bleft+'px';
+  					player.style.top = btop+1+'px';
+				}
+            }
+            document.write("<br>");
+        }
+	</script>
+    </body>
+</html>
+              
